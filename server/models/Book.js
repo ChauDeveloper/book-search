@@ -26,6 +26,10 @@ const bookSchema = new Schema({
     type: String,
     required: true,
   },
+  link: {
+    type: String,
+    // match: [/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/],
+  },
 });
 
 module.exports = bookSchema;
