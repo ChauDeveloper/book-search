@@ -31,8 +31,7 @@ const SignupForm = () => {
   };
 
   return (
-    <>
-   
+   <div>
       <Form  onSubmit={handleFormSubmit}>
         <Form.Group>
           <Form.Label htmlFor='username'>Username</Form.Label>
@@ -79,7 +78,7 @@ const SignupForm = () => {
         </Button>
       </Form>
       {error && <div>Sign up failed</div>}
-    </>
+      </div>
   );
 };
 

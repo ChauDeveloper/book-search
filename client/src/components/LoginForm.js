@@ -32,7 +32,7 @@ const LoginForm = (props) => {
   
 
   return (
-    <>
+   <div>
       <Form onSubmit={handleFormSubmit}>
         <Form.Group>
           <Form.Label htmlFor='email'>Email</Form.Label>
@@ -65,7 +65,7 @@ const LoginForm = (props) => {
   
       </Form>
       {error && <div>Login failed</div>}
-    </>
+      </div>
   );
 };
 
