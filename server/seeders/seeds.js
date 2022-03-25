@@ -4,8 +4,9 @@ const db = require('../config/connection');
 const { Book, User } = require('../models');
 
 db.once('open', async () => {
-  await Book.deleteMany({});
+ 
   await User.deleteMany({});
+  await Book.deleteMany({});
 
   // create user data
   const userData = [];
@@ -41,14 +42,14 @@ const createBooks = await Book.collection.insertMany(bookData);
 
   // create savedbooks
   for (let i = 0; i < 100; i += 1) {
-    const randomBookIndex = Math.floor(Math.random() * createdsavedBooks.ops.length);
-    const { _id: bookId } = createdsavedBooks.ops[randomBookIndex];
+    const randomBookIndex = Math.floor(Math.random() * createBooks.ops.length);
+    const { _id: bookId } = createBooks.ops[randomBookIndex];
 
     let savedBookId = bookId ;
 
     while (savedBookId = bookId) {
-      const randomBookIndex = Math.floor(Math.random() * createdsavedBooks.ops.length);
-      friendId = createdsavedBooks.ops[randomBookIndex];
+      const randomBookIndex = Math.floor(Math.random() * createBooks.ops.length);
+      friendId = createBooks.ops[randomBookIndex];
     }
 
     await User.updateOne({ _id: userId }, { $addToSet: { savedbooks: bookId  } });
