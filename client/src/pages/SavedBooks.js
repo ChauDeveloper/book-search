@@ -22,7 +22,7 @@ const [ handleDeleteBook , {error}] = useMutation(REMOVE_BOOK, {
       });
       // upon success, remove book's id from localStorage
  
-      removeBookId(bookId);
+      removeBookId(savedBooks._id);
     } catch (err) {
       console.error(err);
     }
@@ -47,7 +47,7 @@ const [ handleDeleteBook , {error}] = useMutation(REMOVE_BOOK, {
         <CardColumns>
           {userData.savedBooks.map((book) => {
             return (
-              <Card key={book.bookId} border='dark'>
+              <Card key={book._id} border='dark'>
                 {book.image ? <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' /> : null}
                 <Card.Body>
                 <a href ={`${book.link}`} target="_blank">
@@ -55,7 +55,7 @@ const [ handleDeleteBook , {error}] = useMutation(REMOVE_BOOK, {
                     </a>
                   <p className='small'>Authors: {book.authors}</p>
                   <Card.Text>{book.description}</Card.Text>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteBook(book.bookId)}>
+                  <Button className='btn-block btn-danger' onClick={() => handleDeleteBook(book._id)}>
                     Delete this Book!
                   </Button>
                 </Card.Body>
